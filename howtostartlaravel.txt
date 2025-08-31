@@ -1,0 +1,22 @@
+This is laravel with livewire, tailwind.
+
+To begin, first you need:
+ -- xampp
+ -- composer
+ -- node
+
+to start open project, then pop two terminals and run this command,
+
+on first terminal type: npm run dev,
+  -- this is for node js to compile tailwind, js files etc,
+  -- if you want bootstrap css then we migh not need this well use a cdn (dont be confused by bootstrap folder its not same)
+
+second terminal type: php artisan serve
+  -- this will run the server for main project
+     after running it will show the link usually:
+        -- localhost:port ex. localhost:8000
+        -- 127.0.0.1:port ex. 127.0.0.1:8000
+     open in browser, youll see login and signup link 
+     click on one and itll show the page
+
+youll see google sign in as well.
