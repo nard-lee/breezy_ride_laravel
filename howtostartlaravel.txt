@@ -5,7 +5,19 @@ To begin, first you need:
  -- composer
  -- node
 
+note: dont forget to add php, mysql to your environment variables.
+
 to start open project, then pop two terminals and run this command,
+
+before next step type in terminal: php artisan migrate 
+note: create database first look for it on .env file
+find this:
+  DB_CONNECTION=mysql
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_DATABASE=breezy_ride
+  DB_USERNAME=root
+  DB_PASSWORD=
 
 on first terminal type: npm run dev,
   -- this is for node js to compile tailwind, js files etc,
