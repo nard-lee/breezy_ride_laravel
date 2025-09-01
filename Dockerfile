@@ -31,13 +31,14 @@ COPY . .
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
-# Install Node dependencies & build frontend assets
+# Remove old Vite build (if any) and build frontend assets
+RUN rm -rf public/build
 RUN npm ci
 RUN npm run build
 
-# Set permissions for Laravel
+# Set permissions for Laravel (storage/logs writable)
 RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html/storage \
+    && chmod -R 775 /var/www/html/storage \
     && chmod -R 755 /var/www/html/bootstrap/cache
 
 # Copy entrypoint script
