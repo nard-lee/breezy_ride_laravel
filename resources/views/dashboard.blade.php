@@ -2,18 +2,10 @@
 
 
     <div class="py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <!-- Welcome Section -->
-            <div class="bg-gradient-to-r from-blue-600 to-blue-800 overflow-hidden shadow-lg rounded-xl">
-                <div class="p-8 text-white">
-                    <h3 class="text-2xl font-bold mb-2">Welcome back, {{ auth()->user()->name }}!</h3>
-                    <p class="text-blue-100">Ready for your next adventure? Check out our available motorcycles below.</p>
-                </div>
-            </div>
-
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white overflow-hidden shadow-md rounded-lg border border-gray-100">
+                <div class="bg-white rounded-lg border border-gray-200">
                     <div class="p-6">
                         <div class="flex items-center justify-between">
                             <div>
@@ -29,7 +21,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white overflow-hidden shadow-md rounded-lg border border-gray-100">
+                <div class="bg-white rounded-lg border border-gray-200">
                     <div class="p-6">
                         <div class="flex items-center justify-between">
                             <div>
@@ -45,7 +37,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white overflow-hidden shadow-md rounded-lg border border-gray-100">
+                <div class="bg-white rounded-lg border border-gray-200">
                     <div class="p-6">
                         <div class="flex items-center justify-between">
                             <div>
@@ -64,7 +56,7 @@
 
             <!-- Current Rentals Section -->
             @if(isset($currentRentedMotorcycles) && count($currentRentedMotorcycles) > 0)
-            <div class="bg-white overflow-hidden shadow-lg rounded-xl border border-gray-100">
+            <div class="bg-white rounded-xl border border-gray-200">
                 <div class="p-8">
                     <div class="flex items-center justify-between mb-6">
                         <h3 class="text-xl font-bold text-gray-900">Current Rentals</h3>
@@ -74,7 +66,7 @@
                     </div>
                     <div class="space-y-4">
                         @foreach($currentRentedMotorcycles as $rental)
-                            <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                            <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:bg-gray-100 transition-colors">
                                 <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                                     <div class="flex-1 mb-4 md:mb-0">
                                         <h4 class="text-lg font-semibold text-gray-900">{{ $rental->motorcycle->brand }} {{ $rental->motorcycle->model }}</h4>
@@ -116,7 +108,7 @@
             @endif
 
             <!-- Recommended Rentals Section -->
-            <div class="bg-white overflow-hidden shadow-lg rounded-xl border border-gray-100">
+            <div class="bg-white rounded-xl border border-gray-200">
                 <div class="p-8">
                     <div class="flex items-center justify-between mb-6">
                         <h3 class="text-xl font-bold text-gray-900">Recommended Rentals</h3>

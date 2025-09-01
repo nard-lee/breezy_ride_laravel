@@ -1,6 +1,6 @@
-<div class="p-6 max-w-7xl mx-auto bg-gray-50 min-h-screen space-y-8">
+<div class="p-6 max-w-4xl mx-auto min-h-screen space-y-8">
     <!-- Page Header -->
-    <div class="bg-gradient-to-r from-blue-600 to-blue-800 overflow-hidden shadow-lg rounded-xl">
+    <div class="bg-blue-600 rounded-xl border border-gray-200">
         <div class="p-8 text-white">
             <h1 class="text-3xl font-bold mb-2">Motorcycle Rentals</h1>
             <p class="text-blue-100">Find your perfect ride from our premium collection</p>
@@ -8,7 +8,7 @@
     </div>
 
     <!-- Stats Bar -->
-    <div class="bg-white shadow-md rounded-xl border border-gray-100 p-6">
+    <div class="bg-white rounded-xl border border-gray-200 p-6">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div class="text-gray-600">
                 <span class="font-semibold text-gray-900">{{ count($motorcycles) }}</span> motorcycles available
@@ -22,9 +22,9 @@
     <!-- Motorcycles Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         @foreach($motorcycles as $moto)
-            <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="bg-white rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
                 <!-- Image with Status Badge -->
-                <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center relative">
+                <div class="h-48 bg-gray-200 flex items-center justify-center relative">
                     <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
                     </svg>
@@ -87,7 +87,7 @@
     </div>
     
     @if(count($motorcycles) === 0)
-        <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-12">
+        <div class="bg-white rounded-xl border border-gray-200 p-12">
             <div class="text-center">
                 <svg class="w-20 h-20 text-gray-400 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
