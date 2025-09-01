@@ -3,7 +3,7 @@ FROM php:8.2-apache
 
 WORKDIR /var/www/html
 
-# Install system dependencies + Node
+# Install system dependencies + Node + build tools
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     curl \
     libpq-dev \
+    build-essential \
     && docker-php-ext-install pdo_pgsql mbstring zip exif pcntl gd \
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs
@@ -30,11 +31,11 @@ COPY . .
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
-# Install Node dependencies & build assets (Vite + Tailwind)
-RUN npm install
+# Install Node dependencies & build frontend assets
+RUN npm ci
 RUN npm run build
 
-# Set permissions
+# Set permissions for Laravel
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage \
     && chmod -R 755 /var/www/html/bootstrap/cache
@@ -43,5 +44,5 @@ RUN chown -R www-data:www-data /var/www/html \
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Use entrypoint to run migrations + start Apache
+# Run migrations & start Apache
 ENTRYPOINT ["/entrypoint.sh"]
